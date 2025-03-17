@@ -2,6 +2,24 @@ import pandas as pd
 import sqlite3
 import streamlit as st
 
+
+# Define the URL of your Looker Studio report
+report_url = "https://lookerstudio.google.com/embed/reporting/67160775-9563-45e9-a9e7-a01b3bb00868/page/p_f2mnuhz8pd"
+
+# Create an iframe to embed the report
+st.components.v1.html(
+    f"""
+    <iframe
+        width="100%"
+        height="500"
+        src="{report_url}"
+        frameborder="0"
+        allowfullscreen
+    ></iframe>
+    """,
+    height=600,
+)
+
 # Step 1: Load all Excel tabs to SQLite
 def load_excel_to_sqlite(excel_path, db_path):
     # Create a connection to SQLite database
